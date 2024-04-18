@@ -17,7 +17,7 @@ def main():
             print("Invalid input. Please enter a numeric value.")
 
     
-    if grades:  #should get a number as a grade probly should like numbers with letter grades
+    if grades:  #should get a number as a grade, like numbers with letter grades
         average = sum(grades) / len(grades)
         print(f"Average grade: {average:.2f}")
     else:
