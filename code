@@ -1,28 +1,27 @@
-def main():
+def main(valid_range=(0, 100)):
     grades = []  
+    valid_grades = []  
     print("Enter grades one by one. Type 'done' to finish entering grades.")
 
-   
     while True:
         user_input = input("Enter a grade (or 'done' to finish): ")
         if user_input.lower() == 'done':
             break
         try:
             grade = float(user_input) 
-            if 0 <= grade <= 100:  
+            if valid_range[0] <= grade <= valid_range[1]:  
                 grades.append(grade)
+                valid_grades.append(grade) 
             else:
-                print("Grade must be a number between 0 and 100.")
+                print(f"Grade must be a number between {valid_range[0]} and {valid_range[1]}.")
         except ValueError:
             print("Invalid input. Please enter a numeric value.")
 
-    
-    if grades:  #should get a number as a grade, like numbers with letter grades
-        average = sum(grades) / len(grades)
+    if valid_grades:
+        average = sum(valid_grades) / len(valid_grades)
         print(f"Average grade: {average:.2f}")
     else:
         print("No valid grades were entered.")
 
 if __name__ == "__main__":
     main()
-
